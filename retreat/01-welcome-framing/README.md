@@ -25,12 +25,13 @@ How can building one shared demonstrator help us understand each other's perspec
 - Where do communication quality, technical reliability, scientific accuracy, and operational constraints meet?
 - What should we learn today that is useful beyond this specific prototype?
 
+## Expected Output
+- Shared statement of what a successful day looks like.
+- Agreement that the workshop is both a build session and a perspective-exchange exercise.
+
 ## Moderation Notes
 - Keep this short; the goal is alignment, not a full discussion.
 - Name all relevant roles early so non-coding contributions are legitimate from the beginning.
 - Avoid over-framing the technical solution; the next blocks create the shared understanding step by step.
 - Capture one sentence for "success today" before moving on.
 
-## Expected Output
-- Shared statement of what a successful day looks like.
-- Agreement that the workshop is both a build session and a perspective-exchange exercise.
