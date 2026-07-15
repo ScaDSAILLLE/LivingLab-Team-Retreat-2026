@@ -21,5 +21,5 @@ What works, what is blocked, and what should be addressed after lunch?
 - Owner:
 
 ## Expected Output
-- Short status list in the dashboard.
+- Short status list in the shared notes or cheatsheet.
 - Track candidates for the afternoon.

@@ -71,7 +71,7 @@ Each block should produce either a visible artifact, a shared decision, or a cla
 
 ## Block Map
 
-- 🧰 [`00-before-retreat`](00-before-retreat/) - participant setup, organizer prep, RPi target system, shared dashboard.
+- 🧰 [`00-before-retreat`](00-before-retreat/) - participant setup, organizer prep, RPi target system, optional cheatsheet.
 - 🎯 [`01-welcome-framing`](01-welcome-framing/) - framing, goals, roles, perspective exchange.
 - 🧪 [`02-explore-nanobot`](02-explore-nanobot/) - Nanobot WebUI and first success tasks.
 - 🔎 [`03-nanobot-to-scaddy-v2`](03-nanobot-to-scaddy-v2/) - Scaddy-V1 comparison and demonstrator scope.

@@ -16,7 +16,7 @@ What works, what is fragile, and what is the smallest useful improvement before 
 
 ## Tasks
 - Confirm the current start path.
-- Update dashboard links and ports.
+- Update shared links and ports in the repo, Nextcloud overview, or cheatsheet.
 - Write or update setup notes.
 - Write manual notes for non-coders and visitors.
 - Check `git status` and verify no secrets are staged or tracked.

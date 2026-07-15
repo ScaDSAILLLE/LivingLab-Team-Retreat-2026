@@ -40,7 +40,7 @@ Next steps:
 1. Copy templates/nanobot-config.example.json to ~/.nanobot/config.json.
 2. Copy templates/opencode.example.json to opencode.json in the working repository.
 3. Copy scripts/set_secrets.example.sh to scripts/set_secrets.local.sh.
-4. Replace model placeholders with exact llm.scads.ai model IDs.
+4. Re-check model IDs against https://llm.scads.ai/status/ if needed.
 5. Add local secrets to scripts/set_secrets.local.sh and source it:
    source scripts/set_secrets.local.sh
 6. Verify:

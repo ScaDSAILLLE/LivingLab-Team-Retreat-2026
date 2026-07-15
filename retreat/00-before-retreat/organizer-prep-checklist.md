@@ -7,9 +7,9 @@ Use this as the main setup runbook before participants arrive. Detailed config n
 | Step | Action | Reference |
 |---:|---|---|
 | 1 | Prepare the shared workspace, repository access, and optional Nextcloud overview. | [Shared Workspace](#shared-workspace) |
-| 2 | Prepare the RPi hardware and desktop start state. | [`rpi-start-state.md`](rpi-start-state.md) |
+| 2 | Prepare the Raspberry Pi 400 hardware and desktop start state. | [`rpi-start-state.md`](rpi-start-state.md) |
 | 3 | Install Git, `uv`, Nanobot, and opencode on the RPi. | [`rpi-target-system.md`](rpi-target-system.md), [`nanobot-setup.md`](nanobot-setup.md), [`opencode-setup.md`](opencode-setup.md) |
-| 4 | Copy config templates and replace model placeholders. | [`config-templates.md`](config-templates.md) |
+| 4 | Copy config templates and re-check model IDs against `llm.scads.ai/status/`. | [`config-templates.md`](config-templates.md) |
 | 5 | Create and source `scripts/set_secrets.local.sh` locally. | [`config-templates.md`](config-templates.md) |
 | 6 | Verify Nanobot with `nanobot status` and `nanobot agent -m "Hello!"`. | [`nanobot-setup.md`](nanobot-setup.md) |
 | 7 | Start Nanobot WebUI and verify `http://127.0.0.1:8765` plus LAN access if needed. | [`nanobot-setup.md`](nanobot-setup.md) |
@@ -22,16 +22,16 @@ Use this as the main setup runbook before participants arrive. Detailed config n
 Use the scripts only on the prepared RPi after reviewing them.
 
 ```bash
-./scripts/rpi-bootstrap.sh
+bash scripts/rpi-bootstrap.sh
 cp templates/nanobot-config.example.json ~/.nanobot/config.json
 cp templates/opencode.example.json opencode.json
 cp scripts/set_secrets.example.sh scripts/set_secrets.local.sh
 nano scripts/set_secrets.local.sh
 source scripts/set_secrets.local.sh
-./scripts/rpi-start-demo.sh
+bash scripts/rpi-start-demo.sh
 ```
 
-`rpi-bootstrap.sh` installs tools and should be reviewed before execution. `rpi-start-demo.sh` expects the local configs and secrets to exist.
+`rpi-bootstrap.sh` installs tools and should be reviewed before execution. `rpi-start-demo.sh` expects the local configs and secrets to exist. The scripts are intended to be executable in Git; using `bash scripts/<name>.sh` also works if executable bits are lost.
 
 ## Manual Setup Option
 
@@ -59,7 +59,7 @@ opencode
 
 ## Shared Workspace
 - Create Nextcloud share for the day.
-- Prepare a compact overview with links, ports, contacts, setup commands, track documents, and current status if this is not already covered by the repo files.
+- Prepare a compact cheatsheet with links, ports, contacts, setup commands, track documents, and current status if this is not already covered by the repo files.
 - Prepare prompt cards for opencode.
 - Prepare documentation templates: `README.md`, `setup.md`, `manual.md`, `deployment.md`, `known-limitations.md`.
 - Prepare accessibility and corporate-design input material.
@@ -69,7 +69,7 @@ opencode
 - Use the direct RPi/WebUI path as the primary retreat baseline.
 - Install Nanobot via `uv tool install nanobot-ai` on the RPi.
 - Prepare `~/.nanobot/config.json` from `templates/nanobot-config.example.json`.
-- Replace model placeholders with exact authenticated `llm.scads.ai` model IDs.
+- Re-check configured model IDs against the `llm.scads.ai` status overview.
 - Add the API key through a local-only environment variable or local-only RPi config.
 - Run `nanobot status` and `nanobot agent -m "Hello!"` before the retreat.
 - Start `nanobot gateway` and verify WebUI at `http://127.0.0.1:8765` and `http://<rpi-ip>:8765` if LAN access is needed.
@@ -79,7 +79,7 @@ opencode
 ## opencode Baseline
 - Install opencode on the RPi and any facilitator laptops that need it.
 - Prepare `opencode.json` from `templates/opencode.example.json` in the working repository.
-- Replace model placeholders with exact authenticated `llm.scads.ai` model IDs.
+- Re-check configured model IDs against the `llm.scads.ai` status overview.
 - Verify opencode starts in the working folder with `opencode` after sourcing local secrets.
 - Verify edit and shell permissions ask for confirmation.
 
@@ -96,7 +96,7 @@ opencode
 - Prepare one fallback task per track that can be completed without live model access.
 
 ## Start State
-- RPi, monitor, keyboard, mouse, network, and power are ready.
-- RPi desktop shows Nanobot WebUI and the shared dashboard.
+- Raspberry Pi 400, monitor, network, and power are ready.
+- RPi desktop shows Nanobot WebUI and the shared cheatsheet or repository overview.
 - Terminal or VS Code is open in the cloned working repository.
 - opencode is started or ready to start in that working folder.

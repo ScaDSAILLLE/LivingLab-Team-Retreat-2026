@@ -12,11 +12,11 @@ Prepare Nanobot as the baseline demonstrator surface for the retreat.
 - Configuration docs: <https://github.com/HKUDS/nanobot/blob/main/docs/configuration.md>
 
 ## Model Placeholders
-Use the current `llm.scads.ai` model list before the retreat. Candidate defaults:
-- Nanobot primary model: `gemma-4` placeholder
-- Alternatives to document if available: `glm-5.2`, `kimi-2.7-code`
+Use the current `llm.scads.ai` model list before the retreat. Current defaults:
+- Nanobot primary model: `google/gemma-4-31B-it`
+- Alternatives: `zai-org/GLM-5.2-FP8`, `moonshotai/Kimi-K2.7-Code`
 
-Replace placeholder model IDs in local configs with exact model IDs from the authenticated `llm.scads.ai` model overview.
+Re-check the model IDs shortly before the retreat via `https://llm.scads.ai/status/` or `https://llm.scads.ai/status/state.json`.
 
 ## Install
 ```bash

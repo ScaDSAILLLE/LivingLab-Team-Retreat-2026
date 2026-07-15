@@ -12,9 +12,10 @@ Keep configuration reproducible without committing real secrets.
 | Value | Used by | Suggested placeholder | Source |
 |---|---|---|---|
 | API key | Nanobot, opencode | `SCADSAI_LLM_API_KEY` | Local user/team credential from `llm.scads.ai` |
-| Nanobot model | Nanobot | `gemma-4` placeholder | Authenticated `llm.scads.ai` model list |
-| Coding model | opencode | `minimax-m3` placeholder | Authenticated `llm.scads.ai` model list |
-| Alternative models | opencode/Nanobot | `glm-5.2`, `kimi-2.7-code` placeholders | Authenticated `llm.scads.ai` model list |
+| Nanobot model | Nanobot | `google/gemma-4-31B-it` | `llm.scads.ai` status overview |
+| Coding model | opencode | `MiniMaxAI/MiniMax-M3-MXFP8` | `llm.scads.ai` status overview |
+| Alternative model | opencode/Nanobot | `zai-org/GLM-5.2-FP8` | `llm.scads.ai` status overview |
+| Alternative coding model | opencode/Nanobot | `moonshotai/Kimi-K2.7-Code` | `llm.scads.ai` status overview |
 | WebUI secret | Nanobot WebUI | `NANOBOT_WEBUI_SECRET` | Local workshop password |
 
 ## Safe Copy Pattern
@@ -49,3 +50,4 @@ Never commit files with real keys. `opencode.json` should only contain placehold
 ## Where To Verify Values
 - Public documentation: <https://llm.scads.ai>
 - Status overview: <https://llm.scads.ai/status/>
+- Status data source: <https://llm.scads.ai/status/state.json>

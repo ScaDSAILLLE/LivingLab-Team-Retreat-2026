@@ -1,12 +1,12 @@
-# RPi Start State
+# Raspberry Pi 400 Start State
 
 ## Purpose
-Define the state the Raspberry Pi should be in before participants arrive.
+Define the state the Raspberry Pi 400 should be in before participants arrive.
 
 ## Hardware
-- Raspberry Pi powered on.
+- Raspberry Pi 400 powered on.
 - Monitor connected.
-- Keyboard and mouse connected.
+- Built-in keyboard ready; mouse connected.
 - Network connected and IP address known.
 - Browser available on the RPi desktop.
 - Optional SSH access enabled for technical support.
@@ -39,7 +39,7 @@ Define the state the Raspberry Pi should be in before participants arrive.
 - Nanobot WebUI is open on the RPi browser.
 - Nanobot WebUI is reachable from another trusted device if needed.
 - opencode is open in the cloned working folder.
-- The repository, setup docs, or Nextcloud overview is open next to the demo.
+- The repository, setup docs, Nextcloud overview, or cheatsheet is open next to the demo.
 
 ## Room Check
 - Participants can see the RPi screen or projected browser.

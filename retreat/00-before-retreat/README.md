@@ -14,7 +14,7 @@ Prepare the shared workspace and the Raspberry Pi target system so the retreat c
 | RPi operator | [`rpi-start-state.md`](rpi-start-state.md), [`rpi-target-system.md`](rpi-target-system.md) | Hardware, network, Nanobot WebUI, opencode workspace |
 | Technical setup | [`nanobot-setup.md`](nanobot-setup.md), [`opencode-setup.md`](opencode-setup.md) | Install, configure, and verify the toolchain |
 | Template maintainers | [`config-templates.md`](config-templates.md) | Safe config examples and local secret setup |
-| Facilitators | [`dashboard-template.md`](dashboard-template.md) | Optional one-page status overview for repo or Nextcloud |
+| Facilitators | [`cheatsheet-template.md`](cheatsheet-template.md) | Optional one-page cheatsheet for repo or Nextcloud |
 
 ## Key Question
 What must be ready before 10:00 so participants can start without losing workshop time?
@@ -26,7 +26,7 @@ What must be ready before 10:00 so participants can start without losing worksho
 - Real secrets are never committed; `.env.example` and documented environment variables are used instead.
 
 ## Must Be Ready Before 10:00
-- RPi powered, networked, and reachable from the workshop room.
+- Raspberry Pi 400 powered, networked, and reachable from the workshop room.
 - Nanobot installed, configured for `llm.scads.ai`, and running through `nanobot gateway`.
 - Nanobot WebUI reachable from the RPi browser and, if needed, other devices on the workshop network.
 - opencode installed and configured in the working folder of the cloned Nanobot or starter repository.
@@ -41,7 +41,7 @@ What must be ready before 10:00 so participants can start without losing worksho
 ## Expected Outputs
 - Participant setup checklist sent in advance.
 - Organizer prep checklist completed.
-- Optional retreat overview prepared in Nextcloud or the repo.
+- Optional retreat cheatsheet prepared in Nextcloud or the repo.
 - RPi target-system notes prepared for the concrete start state.
 - `.env.example` prepared later when the starter code exists, never a real `.env` file.
 - Nanobot and opencode config templates prepared with placeholders only.

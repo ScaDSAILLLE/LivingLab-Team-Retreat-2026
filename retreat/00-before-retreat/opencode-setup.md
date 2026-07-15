@@ -39,11 +39,11 @@ opencode
 ## Provider
 Provider: `llm.scads.ai` through an OpenAI-compatible endpoint.
 
-Candidate model IDs to verify against the authenticated `llm.scads.ai` model list:
-- Primary opencode model: `minimax-m3`
-- Alternatives: `glm-5.2`, `kimi-2.7-code`
+Current model IDs from the `llm.scads.ai` status overview:
+- Primary opencode model: `MiniMaxAI/MiniMax-M3-MXFP8`
+- Alternatives: `zai-org/GLM-5.2-FP8`, `moonshotai/Kimi-K2.7-Code`
 
-The exact IDs must be confirmed before the retreat and inserted into the local config or checked-in example placeholders.
+Re-check the exact IDs before the retreat via <https://llm.scads.ai/status/> or <https://llm.scads.ai/status/state.json>.
 
 ## Key Handling
 The template uses an environment variable by default:

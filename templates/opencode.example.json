@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "share": "disabled",
-  "model": "scads/REPLACE_WITH_MINIMAX_M3_MODEL_ID",
-  "small_model": "scads/REPLACE_WITH_MINIMAX_M3_MODEL_ID",
+  "model": "scads/MiniMaxAI/MiniMax-M3-MXFP8",
+  "small_model": "scads/MiniMaxAI/MiniMax-M3-MXFP8",
   "instructions": ["AGENTS.md"],
   "provider": {
     "scads": {
@@ -15,15 +15,15 @@
         "chunkTimeout": 60000
       },
       "models": {
-        "REPLACE_WITH_MINIMAX_M3_MODEL_ID": {
+        "MiniMaxAI/MiniMax-M3-MXFP8": {
           "name": "llm.scads.ai MiniMax M3",
           "tool_call": true
         },
-        "REPLACE_WITH_GLM52_MODEL_ID": {
+        "zai-org/GLM-5.2-FP8": {
           "name": "llm.scads.ai GLM 5.2",
           "tool_call": true
         },
-        "REPLACE_WITH_KIMI27_CODE_MODEL_ID": {
+        "moonshotai/Kimi-K2.7-Code": {
           "name": "llm.scads.ai Kimi 2.7 Code",
           "tool_call": true
         }

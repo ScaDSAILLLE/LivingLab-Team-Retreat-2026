@@ -9,7 +9,7 @@
     "primary": {
       "label": "llm.scads.ai primary",
       "provider": "scads",
-      "model": "REPLACE_WITH_GEMMA4_MODEL_ID",
+      "model": "google/gemma-4-31B-it",
       "maxTokens": 4096,
       "contextWindowTokens": 65536,
       "temperature": 0.1
@@ -17,7 +17,7 @@
     "glm52": {
       "label": "llm.scads.ai GLM 5.2",
       "provider": "scads",
-      "model": "REPLACE_WITH_GLM52_MODEL_ID",
+      "model": "zai-org/GLM-5.2-FP8",
       "maxTokens": 4096,
       "contextWindowTokens": 65536,
       "temperature": 0.1
@@ -25,7 +25,7 @@
     "kimi27Code": {
       "label": "llm.scads.ai Kimi 2.7 Code",
       "provider": "scads",
-      "model": "REPLACE_WITH_KIMI27_CODE_MODEL_ID",
+      "model": "moonshotai/Kimi-K2.7-Code",
       "maxTokens": 4096,
       "contextWindowTokens": 65536,
       "temperature": 0.1

@@ -4,11 +4,11 @@ Send this before the retreat. Local installation is done at each participant's o
 
 ## What To Do
 
-Follow these steps in order if you want to prepare your own laptop. If you will only work on the shared RPi or in a pair, complete steps 1-2 and skip local installation.
+Follow these steps in order if you want to prepare your own laptop. The planned workshop target systems are prepared Raspberry Pi 400 devices, so local setup is optional. If you will only work on a shared RPi or in a pair, complete steps 1-2 and skip local installation.
 
 | Step | Action | Required? |
 |---:|---|---|
-| 1 | Check access to GitHub, Nextcloud/workshop overview, `llm.scads.ai`, and the Nanobot WebUI URL provided by organizers. | Yes |
+| 1 | Check access to GitHub, Nextcloud/workshop overview if used, `llm.scads.ai`, and the Nanobot WebUI URL provided by organizers. | Yes |
 | 2 | Open the repository URL and confirm you can see the workshop files. | Yes |
 | 3 | Install Git, `uv`, VS Code, and opencode using the links below. | Optional but recommended |
 | 4 | Clone the workshop repository. | Optional if working locally |
@@ -40,7 +40,7 @@ https://github.com/ScaDSAILLLE/LivingLab-Team-Retreat-2026
 
 ## Required Workshop Readiness
 - You can open the workshop repository and shared files.
-- You know whether you will work on the shared RPi, your own laptop, or in a pair.
+- You know whether you will work on a prepared Raspberry Pi 400, your own laptop, or in a pair.
 - You can access the Nanobot WebUI URL provided by the organizers.
 - You can ask an organizer before entering or storing any API key.
 

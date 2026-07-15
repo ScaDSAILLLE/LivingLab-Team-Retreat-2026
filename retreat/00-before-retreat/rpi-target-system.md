@@ -1,10 +1,10 @@
-# Raspberry Pi Target System Notes
+# Raspberry Pi 400 Target System Notes
 
 ## Purpose
-Use a dedicated Raspberry Pi as a realistic demonstrator target for Nanobot WebUI access, operations discussion, and deployment practice.
+Use a dedicated Raspberry Pi 400 as a realistic demonstrator target for Nanobot WebUI access, operations discussion, and deployment practice.
 
 ## Initial Assumption
-- The RPi is a dedicated, closed demonstrator system.
+- The RPi 400 is a dedicated, closed demonstrator system.
 - Compute-heavy multimodal tasks may need central/HPC/GPU resources; the RPi should primarily host or expose the lightweight interface and orchestration layer.
 
 ## Primary Retreat Architecture
