@@ -168,16 +168,19 @@ venv.bak/
 *.csr
 *secret*
 *secrets*
+!scripts/set_secrets.example.sh
 *credential*
 *credentials*
 *token*
 config.local.*
 local.config.*
 *.local.json
+*.local.sh
 opencode.local.json
 nanobot.local.json
 nanobot.env
 .nanobot/
+scripts/set_secrets.local.sh
 
 # Spyder project settings
 .spyderproject

@@ -5,11 +5,11 @@ Prepare Nanobot as the baseline demonstrator surface for the retreat.
 
 ## Known Baseline
 - Nanobot package: `nanobot-ai`
-- Python requirement: Python 3.11+
 - Recommended install path for the retreat: `uv tool install nanobot-ai`
 - WebUI command path: `nanobot gateway`, then open port `8765`
 - LAN access path: bind WebSocket/WebUI to `0.0.0.0` and set a WebUI secret
 - Provider: `llm.scads.ai` / TUD:AI, documented at <https://llm.scads.ai>
+- Configuration docs: <https://github.com/HKUDS/nanobot/blob/main/docs/configuration.md>
 
 ## Model Placeholders
 Use the current `llm.scads.ai` model list before the retreat. Candidate defaults:
@@ -22,9 +22,12 @@ Replace placeholder model IDs in local configs with exact model IDs from the aut
 ```bash
 uv tool install nanobot-ai
 nanobot --version
+nanobot onboard
 ```
 
 If `nanobot` is not on `PATH`, open a new terminal or ensure `~/.local/bin` is included in `PATH`.
+
+`nanobot onboard --wizard` is available if an interactive configuration flow is preferred.
 
 ## Prepare Config
 Use [`../../templates/nanobot-config.example.json`](../../templates/nanobot-config.example.json) as the safe template.
@@ -42,29 +45,34 @@ Then edit the local file only:
 nano ~/.nanobot/config.json
 ```
 
-Two safe key-handling options are acceptable:
-- Keep `${SCADSAI_LLM_API_KEY}` and export the key in the terminal that starts Nanobot.
-- Replace the placeholder in `~/.nanobot/config.json` with the real key on the RPi only.
+Keep `${SCADSAI_LLM_API_KEY}` and `${NANOBOT_WEBUI_SECRET}` in the config. Export the real values before starting Nanobot.
 
 Never copy the real local config back into this repository.
 
-## Environment Variable Option
-```bash
-export SCADSAI_LLM_API_KEY="replace-with-local-key"
-export NANOBOT_WEBUI_SECRET="replace-with-local-webui-password"
-```
-
-The shell exports apply only to the current terminal unless added to a protected local shell profile or service environment.
-
-## Verify Provider Access
-Without a key, `https://llm.scads.ai/v1/models` returns `401`. With a valid key, the model list should be reachable:
+## Local Secret Script
+Prepare a local script from the example:
 
 ```bash
-curl -sS https://llm.scads.ai/v1/models \
-  -H "Authorization: Bearer $SCADSAI_LLM_API_KEY"
+cp scripts/set_secrets.example.sh scripts/set_secrets.local.sh
+nano scripts/set_secrets.local.sh
 ```
 
-Use the returned model IDs to update the config template.
+Edit `scripts/set_secrets.local.sh` locally and insert the real values. Then source it in the terminal that starts Nanobot:
+
+```bash
+source scripts/set_secrets.local.sh
+```
+
+The script must be sourced, not executed, so the exported variables remain available in the current shell.
+
+## Verify Model IDs
+Use the `llm.scads.ai` status overview to check currently available models:
+
+```text
+https://llm.scads.ai/status/
+```
+
+Use the confirmed model IDs to update the config template.
 
 ## Smoke Test
 ```bash

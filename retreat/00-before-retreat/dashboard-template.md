@@ -1,6 +1,6 @@
 # Retreat Dashboard Template
 
-Keep this document open during the whole day.
+Optional one-page overview for the repo or Nextcloud. Use it only if a single status page helps the group; the Markdown files in this repository can also serve as the primary workshop navigation.
 
 ## Links
 - Repository:

@@ -13,7 +13,6 @@ Define the state the Raspberry Pi should be in before participants arrive.
 
 ## Installed Software
 - Git installed.
-- Python 3.11+ available.
 - `uv` installed and available on `PATH`.
 - `nanobot-ai` installed.
 - opencode installed.
@@ -30,8 +29,8 @@ Define the state the Raspberry Pi should be in before participants arrive.
 - Nanobot config copied to `~/.nanobot/config.json`.
 - Nanobot model ID and `llm.scads.ai` endpoint verified.
 - WebUI secret configured for LAN access.
-- opencode local config prepared as `opencode.local.json` or equivalent.
-- API key provided through environment variables or local-only config.
+- opencode config prepared as `opencode.json` in the working repository.
+- `scripts/set_secrets.local.sh` prepared locally and sourced before startup.
 
 ## Running Before 10:00
 - `nanobot status` succeeds.
@@ -40,7 +39,7 @@ Define the state the Raspberry Pi should be in before participants arrive.
 - Nanobot WebUI is open on the RPi browser.
 - Nanobot WebUI is reachable from another trusted device if needed.
 - opencode is open in the cloned working folder.
-- Shared dashboard is open next to the demo.
+- The repository, setup docs, or Nextcloud overview is open next to the demo.
 
 ## Room Check
 - Participants can see the RPi screen or projected browser.

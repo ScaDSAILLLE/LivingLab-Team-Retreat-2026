@@ -16,7 +16,7 @@ if [ "$confirm" != "YES" ]; then
 fi
 
 sudo apt update
-sudo apt install -y git curl ca-certificates python3 python3-venv python3-pip
+sudo apt install -y git curl ca-certificates
 
 if ! command -v uv >/dev/null 2>&1; then
   curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -38,21 +38,21 @@ Bootstrap finished.
 
 Next steps:
 1. Copy templates/nanobot-config.example.json to ~/.nanobot/config.json.
-2. Copy templates/opencode.example.json to opencode.local.json in the working repository.
-3. Replace model placeholders with exact llm.scads.ai model IDs.
-4. Provide local secrets through environment variables or local-only config:
-   export SCADSAI_LLM_API_KEY="replace-with-local-key"
-   export NANOBOT_WEBUI_SECRET="replace-with-local-webui-password"
-5. Verify:
+2. Copy templates/opencode.example.json to opencode.json in the working repository.
+3. Copy scripts/set_secrets.example.sh to scripts/set_secrets.local.sh.
+4. Replace model placeholders with exact llm.scads.ai model IDs.
+5. Add local secrets to scripts/set_secrets.local.sh and source it:
+   source scripts/set_secrets.local.sh
+6. Verify:
    nanobot status
    nanobot agent -m "Hello!"
-6. Start:
+7. Start:
    nanobot gateway
-7. Open:
+8. Open:
    http://127.0.0.1:8765
    http://<rpi-ip>:8765
-8. Start opencode from the working repository:
-   OPENCODE_CONFIG=opencode.local.json opencode
+9. Start opencode from the working repository:
+   opencode
 
 Do not commit local configs or secrets.
 MSG

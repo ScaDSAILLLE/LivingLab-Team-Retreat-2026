@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
+  "model": "scads/REPLACE_WITH_MINIMAX_M3_MODEL_ID",
+  "small_model": "scads/REPLACE_WITH_MINIMAX_M3_MODEL_ID",
+  "instructions": ["AGENTS.md"],
+  "provider": {
+    "scads": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llm.scads.ai",
+      "options": {
+        "baseURL": "https://llm.scads.ai/v1",
+        "apiKey": "{env:SCADSAI_LLM_API_KEY}",
+        "timeout": 600000,
+        "chunkTimeout": 60000
+      },
+      "models": {
+        "REPLACE_WITH_MINIMAX_M3_MODEL_ID": {
+          "name": "llm.scads.ai MiniMax M3",
+          "tool_call": true
+        },
+        "REPLACE_WITH_GLM52_MODEL_ID": {
+          "name": "llm.scads.ai GLM 5.2",
+          "tool_call": true
+        },
+        "REPLACE_WITH_KIMI27_CODE_MODEL_ID": {
+          "name": "llm.scads.ai Kimi 2.7 Code",
+          "tool_call": true
+        }
+      }
+    }
+  },
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "webfetch": "ask"
+  }
+}

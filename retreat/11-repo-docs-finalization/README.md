@@ -22,7 +22,7 @@ Can another person understand, start, operate, and continue the project after th
 - README points to the correct start path.
 - Setup instructions are current.
 - Manual explains how to operate the demo without programming knowledge.
-- Deployment notes include RPi/Nginx/Docker decisions and open questions.
+- Deployment notes include RPi setup, WebUI access, operations notes, and open questions.
 - Known limitations are explicit.
 - No secrets, `.env`, tokens, private keys, or local-only configs are committed.
 

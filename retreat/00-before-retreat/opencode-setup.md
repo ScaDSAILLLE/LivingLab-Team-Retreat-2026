@@ -14,7 +14,7 @@ opencode --version
 Alternative package-manager installs are documented at <https://opencode.ai/docs/>.
 
 ## Config Location
-For the retreat, prefer a project-local config template so the working folder is self-contained.
+For the retreat, use a project-local `opencode.json` so the working folder is self-contained.
 
 Safe template:
 
@@ -22,21 +22,19 @@ Safe template:
 templates/opencode.example.json
 ```
 
-Possible local target:
+Project target:
 
 ```text
-opencode.local.json
+opencode.json
 ```
 
-`opencode.local.json` is ignored by Git and may contain local endpoint or key information. Do not commit it.
+`opencode.json` may be committed only if it contains placeholders or environment-variable references, never a real API key.
 
-Start opencode with an explicit local config if needed:
+Start opencode from the repository root:
 
 ```bash
-OPENCODE_CONFIG=opencode.local.json opencode
+opencode
 ```
-
-If a checked-in `opencode.json` is added later, it must not contain a real API key.
 
 ## Provider
 Provider: `llm.scads.ai` through an OpenAI-compatible endpoint.
@@ -51,16 +49,17 @@ The exact IDs must be confirmed before the retreat and inserted into the local c
 The template uses an environment variable by default:
 
 ```bash
-export SCADSAI_LLM_API_KEY="replace-with-local-key"
+source scripts/set_secrets.local.sh
 ```
 
-If the key is written directly into a local opencode config, that file must stay ignored and local-only.
+Do not write the API key into `opencode.json`. If a separate local config with a real key is created for debugging, it must stay ignored and local-only.
 
 ## Verify
 From the cloned working folder:
 
 ```bash
-OPENCODE_CONFIG=opencode.local.json opencode
+source scripts/set_secrets.local.sh
+opencode
 ```
 
 Inside opencode, verify:
@@ -79,4 +78,4 @@ Check the repository state safely. Do not read .env files, local configs, keys, 
 ```
 
 ## Restart Requirement
-opencode reads config at startup. After editing `opencode.local.json` or `opencode.json`, quit and restart opencode.
+opencode reads config at startup. After editing `opencode.json`, quit and restart opencode.

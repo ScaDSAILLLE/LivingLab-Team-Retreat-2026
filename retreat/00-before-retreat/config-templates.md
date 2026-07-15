@@ -6,6 +6,7 @@ Keep configuration reproducible without committing real secrets.
 ## Files
 - [`../../templates/nanobot-config.example.json`](../../templates/nanobot-config.example.json) - safe Nanobot config example for `llm.scads.ai` and LAN WebUI.
 - [`../../templates/opencode.example.json`](../../templates/opencode.example.json) - safe opencode config example for `llm.scads.ai`.
+- [`../../scripts/set_secrets.example.sh`](../../scripts/set_secrets.example.sh) - local environment-variable export template.
 
 ## Values To Fill Before The Retreat
 | Value | Used by | Suggested placeholder | Source |
@@ -20,28 +21,31 @@ Keep configuration reproducible without committing real secrets.
 Copy examples to local-only paths and edit those files. Run from the repository root:
 
 ```bash
-cp templates/opencode.example.json opencode.local.json
+cp templates/opencode.example.json opencode.json
+cp scripts/set_secrets.example.sh scripts/set_secrets.local.sh
 mkdir -p ~/.nanobot
 cp templates/nanobot-config.example.json ~/.nanobot/config.json
 ```
 
-`opencode.local.json`, `*.local.json`, `nanobot.env`, `.nanobot/`, and `.env*` are ignored by Git.
+Edit `scripts/set_secrets.local.sh` locally, then source it before starting Nanobot or opencode:
 
-## Key Placement Options
-Preferred for reproducible setup:
+```bash
+nano scripts/set_secrets.local.sh
+source scripts/set_secrets.local.sh
+```
+
+`scripts/set_secrets.local.sh`, `*.local.json`, `nanobot.env`, `.nanobot/`, and `.env*` are ignored by Git.
+
+## Key Placement
+Use local environment variables for both tools:
 
 ```bash
 export SCADSAI_LLM_API_KEY="replace-with-local-key"
 export NANOBOT_WEBUI_SECRET="replace-with-local-webui-password"
 ```
 
-Acceptable on the dedicated RPi if the file stays local and protected:
-- write the real API key directly into `~/.nanobot/config.json`,
-- write the real API key directly into `opencode.local.json`.
-
-Never commit files with real keys.
+Never commit files with real keys. `opencode.json` should only contain placeholders or `{env:...}` references.
 
 ## Where To Verify Values
 - Public documentation: <https://llm.scads.ai>
-- API model endpoint, with valid key: `https://llm.scads.ai/v1/models`
 - Status overview: <https://llm.scads.ai/status/>

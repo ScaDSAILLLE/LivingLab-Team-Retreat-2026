@@ -1,15 +1,72 @@
 # Organizer Prep Checklist
 
+Use this as the main setup runbook before participants arrive. Detailed config notes live in the linked setup files to avoid duplicating templates across documents.
+
+## Step-by-Step Setup
+
+| Step | Action | Reference |
+|---:|---|---|
+| 1 | Prepare the shared workspace, repository access, and optional Nextcloud overview. | [Shared Workspace](#shared-workspace) |
+| 2 | Prepare the RPi hardware and desktop start state. | [`rpi-start-state.md`](rpi-start-state.md) |
+| 3 | Install Git, `uv`, Nanobot, and opencode on the RPi. | [`rpi-target-system.md`](rpi-target-system.md), [`nanobot-setup.md`](nanobot-setup.md), [`opencode-setup.md`](opencode-setup.md) |
+| 4 | Copy config templates and replace model placeholders. | [`config-templates.md`](config-templates.md) |
+| 5 | Create and source `scripts/set_secrets.local.sh` locally. | [`config-templates.md`](config-templates.md) |
+| 6 | Verify Nanobot with `nanobot status` and `nanobot agent -m "Hello!"`. | [`nanobot-setup.md`](nanobot-setup.md) |
+| 7 | Start Nanobot WebUI and verify `http://127.0.0.1:8765` plus LAN access if needed. | [`nanobot-setup.md`](nanobot-setup.md) |
+| 8 | Start opencode from the cloned repository and verify it loads `AGENTS.md`. | [`opencode-setup.md`](opencode-setup.md) |
+| 9 | Prepare fallback screenshots, mock transcript, and track materials. | [Retreat Materials](#retreat-materials) |
+| 10 | Leave the RPi desktop ready with browser, terminal/VS Code, WebUI, and repository open. | [Start State](#start-state) |
+
+## Scripted Setup Option
+
+Use the scripts only on the prepared RPi after reviewing them.
+
+```bash
+./scripts/rpi-bootstrap.sh
+cp templates/nanobot-config.example.json ~/.nanobot/config.json
+cp templates/opencode.example.json opencode.json
+cp scripts/set_secrets.example.sh scripts/set_secrets.local.sh
+nano scripts/set_secrets.local.sh
+source scripts/set_secrets.local.sh
+./scripts/rpi-start-demo.sh
+```
+
+`rpi-bootstrap.sh` installs tools and should be reviewed before execution. `rpi-start-demo.sh` expects the local configs and secrets to exist.
+
+## Manual Setup Option
+
+Use this if you do not want to run the scripts.
+
+```bash
+uv tool install nanobot-ai
+nanobot onboard
+cp templates/nanobot-config.example.json ~/.nanobot/config.json
+cp templates/opencode.example.json opencode.json
+cp scripts/set_secrets.example.sh scripts/set_secrets.local.sh
+nano scripts/set_secrets.local.sh
+source scripts/set_secrets.local.sh
+nanobot status
+nanobot agent -m "Hello!"
+nanobot gateway
+```
+
+Open a second terminal in the repository root:
+
+```bash
+source scripts/set_secrets.local.sh
+opencode
+```
+
 ## Shared Workspace
 - Create Nextcloud share for the day.
-- Prepare a retreat dashboard with links, ports, contacts, setup commands, track documents, and current status.
+- Prepare a compact overview with links, ports, contacts, setup commands, track documents, and current status if this is not already covered by the repo files.
 - Prepare prompt cards for opencode.
 - Prepare documentation templates: `README.md`, `setup.md`, `manual.md`, `deployment.md`, `known-limitations.md`.
 - Prepare accessibility and corporate-design input material.
 - Prepare Scaddy-V1 reference material for comparison, not for a one-to-one rebuild.
 
 ## Nanobot Baseline
-- Use the direct RPi/WebUI path as the primary retreat baseline unless a prepared Docker setup is already tested.
+- Use the direct RPi/WebUI path as the primary retreat baseline.
 - Install Nanobot via `uv tool install nanobot-ai` on the RPi.
 - Prepare `~/.nanobot/config.json` from `templates/nanobot-config.example.json`.
 - Replace model placeholders with exact authenticated `llm.scads.ai` model IDs.
@@ -21,16 +78,16 @@
 
 ## opencode Baseline
 - Install opencode on the RPi and any facilitator laptops that need it.
-- Prepare `opencode.local.json` from `templates/opencode.example.json` in the working repository.
+- Prepare `opencode.json` from `templates/opencode.example.json` in the working repository.
 - Replace model placeholders with exact authenticated `llm.scads.ai` model IDs.
-- Verify opencode starts in the working folder with `OPENCODE_CONFIG=opencode.local.json opencode`.
+- Verify opencode starts in the working folder with `opencode` after sourcing local secrets.
 - Verify edit and shell permissions ask for confirmation.
 
 ## Secrets and Config
 - Prepare `.env.example` only after the starter project exists.
 - Use environment-variable placeholders for secrets in examples.
 - Never copy real `~/.nanobot/config.json` into the repository.
-- Never commit `opencode.local.json`, `nanobot.local.json`, `nanobot.env`, `.nanobot/`, or copied local configs.
+- Never commit `scripts/set_secrets.local.sh`, `nanobot.local.json`, `nanobot.env`, `.nanobot/`, or copied local configs with real secrets.
 - Verify `.gitignore` still covers `.env*`, tokens, keys, credentials, and local-only config files.
 
 ## Retreat Materials

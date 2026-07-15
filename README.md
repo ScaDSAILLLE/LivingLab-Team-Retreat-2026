@@ -43,6 +43,6 @@ For a new workshop, copy the folder structure and adjust the concrete demonstrat
 
 ## Current Technical Baseline
 
-The planned demonstrator foundation is Nanobot with its existing WebUI. The target deployment discussion includes a Raspberry Pi system, Nginx reverse proxying, Docker or `uv`-based setup, and careful handling of secrets.
+The planned demonstrator foundation is Nanobot with its existing WebUI. The target setup uses a Raspberry Pi system, direct WebUI access on the workshop network, `uv`-based installation, opencode, and careful handling of secrets.
 
 No executable starter application is present yet. Do not assume build, test, lint, or run commands unless matching configuration files are added.

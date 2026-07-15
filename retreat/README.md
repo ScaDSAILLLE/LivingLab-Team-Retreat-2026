@@ -25,7 +25,7 @@ The demonstrator is the concrete investigation object for this retreat, but the 
 | 13:00 | Lunch | Break |
 | 14:00 | [Re-entry plan](08-reentry-plan/) | Track assignments and success criteria |
 | 14:10 | [Feature tracks](09-feature-tracks/) | Knowledge, vision, voice, or hardening result |
-| 14:55 | [Deployment](10-deployment/) | RPi, Nginx, Docker/uv, operations notes |
+| 14:55 | [Deployment](10-deployment/) | RPi, direct WebUI access, `uv`, operations notes |
 | 15:20 | [Repo and docs finalization](11-repo-docs-finalization/) | Start, manual, deployment, limitations, demo story |
 | 15:45 | [Demo pitches](12-demo-pitches/) | Short track demos and learnings |
 | 16:05 | [SWOT and closing](13-swot-closing/) | Follow-up actions and responsibilities |
@@ -81,7 +81,7 @@ Each block should produce either a visible artifact, a shared decision, or a cla
 - ☑️ [`07-midday-check`](07-midday-check/) - status before lunch.
 - 🔁 [`08-reentry-plan`](08-reentry-plan/) - afternoon planning and track selection.
 - 🛠️ [`09-feature-tracks`](09-feature-tracks/) - knowledge, vision, voice, demo hardening.
-- 🚀 [`10-deployment`](10-deployment/) - deployment input, RPi/Nginx/Docker notes, operations questions.
+- 🚀 [`10-deployment`](10-deployment/) - deployment input, RPi setup, direct WebUI access, operations questions.
 - 📚 [`11-repo-docs-finalization`](11-repo-docs-finalization/) - final documentation and demo packaging.
 - 🎤 [`12-demo-pitches`](12-demo-pitches/) - pitch structure.
 - 🧩 [`13-swot-closing`](13-swot-closing/) - SWOT, Vision 2030, follow-up actions.

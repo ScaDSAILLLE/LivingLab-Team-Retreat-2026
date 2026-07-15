@@ -16,9 +16,8 @@ What does it take to operate this demonstrator on a Raspberry Pi target system a
 
 ## Required Topics
 - RPi deployment target and expected network environment.
-- Nginx reverse proxy for Nanobot WebUI.
-- Docker versus direct `uv`/systemd installation.
-- Whether sandboxing is necessary on a dedicated closed system.
+- Direct Nanobot WebUI access on the workshop network.
+- `uv`-based installation and simple start procedure.
 - Secret handling and `.env.example` policy.
 - Persistent Nanobot state and backups.
 - Log access and troubleshooting ownership.
