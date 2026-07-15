@@ -18,7 +18,7 @@ The demonstrator is the concrete investigation object for this retreat, but the 
 | 10:00 | [Welcome and framing](01-welcome-framing/) | Shared objective and team perspectives |
 | 10:15 | [Explore Nanobot](02-explore-nanobot/) | First WebUI experience and capability notes |
 | 10:30 | [Nanobot to Scaddy-V2](03-nanobot-to-scaddy-v2/) | Demonstrator scope and comparison with Scaddy-V1 |
-| 10:45 | [AI pair programming](04-ai-pair-programming-opencode/) | opencode workflows, prompt patterns, safe Git |
+| 10:45 | [AI agents for daily work](04-ai-pair-programming-opencode/) | opencode workflows, everyday use cases, safe agent habits |
 | 11:30 | [Demo spec and accessibility](05-demo-spec-accessibility-cd/) | Shared demo/coding spec |
 | 12:30 | [Baseline stabilization](06-baseline-stabilization/) | Setup notes, repo hygiene, fallback status |
 | 12:55 | [Midday check](07-midday-check/) | Current status and afternoon needs |
@@ -75,7 +75,7 @@ Each block should produce either a visible artifact, a shared decision, or a cla
 - 🎯 [`01-welcome-framing`](01-welcome-framing/) - framing, goals, roles, perspective exchange.
 - 🧪 [`02-explore-nanobot`](02-explore-nanobot/) - Nanobot WebUI and first success tasks.
 - 🔎 [`03-nanobot-to-scaddy-v2`](03-nanobot-to-scaddy-v2/) - Scaddy-V1 comparison and demonstrator scope.
-- 🤝 [`04-ai-pair-programming-opencode`](04-ai-pair-programming-opencode/) - opencode practice, prompt patterns, safe Git.
+- 🤝 [`04-ai-pair-programming-opencode`](04-ai-pair-programming-opencode/) - opencode practice, everyday workflows, safe agent habits.
 - 🧭 [`05-demo-spec-accessibility-cd`](05-demo-spec-accessibility-cd/) - combined demo spec, accessibility, corporate design, UI implications.
 - 🧱 [`06-baseline-stabilization`](06-baseline-stabilization/) - repo, docs, setup, fallback, known limitations.
 - ☑️ [`07-midday-check`](07-midday-check/) - status before lunch.
