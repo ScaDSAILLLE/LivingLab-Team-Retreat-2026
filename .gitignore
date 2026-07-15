@@ -149,6 +149,7 @@ activemq-data/
 
 # Environments
 .env
+.env.*
 .envrc
 .venv
 env/
@@ -156,6 +157,21 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Sensitive local files
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.csr
+*secret*
+*secrets*
+*credential*
+*credentials*
+*token*
+config.local.*
+local.config.*
 
 # Spyder project settings
 .spyderproject
