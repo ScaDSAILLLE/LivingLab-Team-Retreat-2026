@@ -7,6 +7,8 @@ Keep this document open during the whole day.
 - Nextcloud share:
 - Nanobot WebUI:
 - RPi target URL:
+- RPi IP address:
+- opencode working folder:
 - Deployment notes:
 - Coding/demo spec:
 - Feature-track documents:
@@ -18,13 +20,22 @@ Keep this document open during the whole day.
 
 ## Current Status
 - Baseline works:
+- Nanobot config verified:
+- opencode config verified:
+- `llm.scads.ai` model IDs verified:
 - Known blockers:
 - Current demo URL:
 - Current fallback:
 
+## Start Commands
+- Nanobot status:
+- Nanobot WebUI:
+- opencode:
+
 ## Roles
 - Facilitator:
 - Technical support:
+- RPi operator:
 - HPC/deployment contact:
 - PR/accessibility contact:
 - Documentation lead:

@@ -14,5 +14,6 @@
 
 ## Sensitive Files
 - Never read, print, summarize, or copy `.env` files or files that appear to contain secrets, credentials, private keys, tokens, or local-only config. Use filename-only checks such as `glob` if needed.
+- Treat `opencode.local.json`, `nanobot.local.json`, `nanobot.env`, `.nanobot/`, and any `*.local.json` as sensitive local config unless the user explicitly says otherwise.
 - If a task seems to require inspecting a sensitive config or you are unsure whether a file is safe, ask the user before opening it.
 - Keep `.gitignore` updated when adding tooling or local configs so vulnerable files stay untracked.

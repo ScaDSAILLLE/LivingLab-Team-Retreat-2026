@@ -150,6 +150,7 @@ activemq-data/
 # Environments
 .env
 .env.*
+*.env
 .envrc
 .venv
 env/
@@ -172,6 +173,11 @@ venv.bak/
 *token*
 config.local.*
 local.config.*
+*.local.json
+opencode.local.json
+nanobot.local.json
+nanobot.env
+.nanobot/
 
 # Spyder project settings
 .spyderproject
