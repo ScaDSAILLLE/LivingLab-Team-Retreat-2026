@@ -1,4 +1,6 @@
-# 10:00-10:15 - Welcome, Framing, and Day Objective
+# Welcome, Framing, and Day Objective
+
+**Time:** 10:00-10:15
 
 ## Purpose
 Create a shared reason for the day: demonstrators are not just technical artifacts, but tools for science communication, transfer, public engagement, and internal learning.

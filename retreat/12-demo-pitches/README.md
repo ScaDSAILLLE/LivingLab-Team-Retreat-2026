@@ -1,4 +1,6 @@
-# 15:45-16:05 - Demo Pitches
+# Demo Pitches
+
+**Time:** 15:45-16:05
 
 ## Purpose
 Make the results visible and compare the value of the different feature extensions.

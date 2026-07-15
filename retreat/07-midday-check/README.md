@@ -1,4 +1,6 @@
-# 12:55-13:00 - Midday Check
+# Midday Check
+
+**Time:** 12:55-13:00
 
 ## Purpose
 Create a shared view of what works, what is blocked, and what should happen after lunch.

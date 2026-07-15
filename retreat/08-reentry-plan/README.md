@@ -1,4 +1,6 @@
-# 14:00-14:10 - Re-entry and Afternoon Plan
+# Re-entry and Afternoon Plan
+
+**Time:** 14:00-14:10
 
 ## Purpose
 Re-establish focus after lunch and define realistic afternoon outputs.

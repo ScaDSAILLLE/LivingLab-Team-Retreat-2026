@@ -1,4 +1,6 @@
-# 10:30-10:45 - From Nanobot to Scaddy-V2
+# From Nanobot to Scaddy-V2
+
+**Time:** 10:30-10:45
 
 ## Purpose
 Translate the first Nanobot experience into a small and realistic Living Lab demonstrator goal.

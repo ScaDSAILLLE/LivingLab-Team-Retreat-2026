@@ -1,4 +1,6 @@
-# 10:15-10:30 - Explore Nanobot and WebUI
+# Explore Nanobot and WebUI
+
+**Time:** 10:15-10:30
 
 ## Purpose
 Create a quick first success with the actual foundation for the day.

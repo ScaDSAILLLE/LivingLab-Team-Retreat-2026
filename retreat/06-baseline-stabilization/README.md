@@ -1,4 +1,6 @@
-# 12:30-12:55 - Baseline Stabilization
+# Baseline Stabilization
+
+**Time:** 12:30-12:55
 
 ## Purpose
 Establish a clean first working baseline before lunch.

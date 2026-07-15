@@ -1,4 +1,6 @@
-# 10:45-11:30 - AI Pair Programming with opencode
+# AI Pair Programming with opencode
+
+**Time:** 10:45-11:30
 
 ## Purpose
 Enable everyone to use opencode productively for exploration, documentation, safe changes, and daily work beyond coding.

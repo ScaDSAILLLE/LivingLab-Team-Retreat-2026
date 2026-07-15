@@ -1,4 +1,6 @@
-# 14:10-14:55 - Feature Tracks
+# Feature Tracks
+
+**Time:** 14:10-14:55
 
 ## Purpose
 Explore how Nanobot can be extended toward Scaddy-V2 without rebuilding the original system from scratch.

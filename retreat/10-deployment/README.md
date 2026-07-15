@@ -1,4 +1,6 @@
-# 14:55-15:20 - Deployment Input and Live Walkthrough
+# Deployment Input and Live Walkthrough
+
+**Time:** 14:55-15:20
 
 ## Purpose
 Create a shared understanding of what it takes to run, maintain, update, secure, and possibly persist the demonstrator on real resources.

@@ -1,4 +1,6 @@
-# 15:20-15:45 - Repository, Documentation, and Demo Finalization
+# Repository, Documentation, and Demo Finalization
+
+**Time:** 15:20-15:45
 
 ## Purpose
 Turn the workshop result into a traceable and reusable demonstrator package.

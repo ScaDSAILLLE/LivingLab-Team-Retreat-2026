@@ -1,4 +1,6 @@
-# 11:30-12:30 - Demo Design, Accessibility, Corporate Design, and UI Spec
+# Demo Design, Accessibility, Corporate Design, and UI Spec
+
+**Time:** 11:30-12:30
 
 ## Purpose
 Define the public-demo specification based on Nanobot WebUI, accessibility requirements, corporate design, and the Scaddy-V2 demonstrator goal.

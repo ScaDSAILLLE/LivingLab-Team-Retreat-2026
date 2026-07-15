@@ -1,5 +1,7 @@
 # 00 - Before the Retreat
 
+**Time:** Before the retreat
+
 ## Purpose
 Prepare the shared workspace and the Raspberry Pi target system so the retreat can focus on learning, collaboration, and demonstrator decisions instead of setup friction.
 
