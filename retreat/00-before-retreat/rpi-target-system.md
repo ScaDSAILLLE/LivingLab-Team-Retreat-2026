@@ -19,7 +19,8 @@ Use a dedicated Raspberry Pi 400 as a realistic demonstrator target for Nanobot 
 - `~/.nanobot/config.json` exists and was copied from [`../../templates/nanobot-config.example.json`](../../templates/nanobot-config.example.json).
 - `opencode.json` exists in the cloned working repository and was copied from [`../../templates/opencode.example.json`](../../templates/opencode.example.json).
 - `scripts/set_secrets.local.sh` exists locally and was copied from [`../../scripts/set_secrets.example.sh`](../../scripts/set_secrets.example.sh).
-- The local shell has loaded the secrets with `source scripts/set_secrets.local.sh` before starting Nanobot or opencode.
+- The local shell has `SCADSAI_API_KEY` available before starting opencode, either through `~/.bashrc` or `source scripts/set_secrets.local.sh`.
+- Nanobot-specific secrets are loaded with `source scripts/set_secrets.local.sh` until the final Nanobot config is settled.
 
 Open from another device on the same network:
 

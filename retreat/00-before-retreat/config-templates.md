@@ -11,7 +11,8 @@ Keep configuration reproducible without committing real secrets.
 ## Values To Fill Before The Retreat
 | Value | Used by | Suggested placeholder | Source |
 |---|---|---|---|
-| API key | Nanobot, opencode | `SCADSAI_LLM_API_KEY` | Local user/team credential from `llm.scads.ai` |
+| API key | opencode | `SCADSAI_API_KEY` | Local user/team credential from `llm.scads.ai` |
+| API key | Nanobot | `SCADSAI_LLM_API_KEY` | Local user/team credential from `llm.scads.ai`; may be updated with the final Nanobot config |
 | Nanobot model | Nanobot | `google/gemma-4-31B-it` | `llm.scads.ai` status overview |
 | Coding model | opencode | `MiniMaxAI/MiniMax-M3-MXFP8` | `llm.scads.ai` status overview |
 | Alternative model | opencode/Nanobot | `zai-org/GLM-5.2-FP8` | `llm.scads.ai` status overview |
@@ -28,7 +29,14 @@ mkdir -p ~/.nanobot
 cp templates/nanobot-config.example.json ~/.nanobot/config.json
 ```
 
-Edit `scripts/set_secrets.local.sh` locally, then source it before starting Nanobot or opencode:
+For opencode, the simplest persistent setup is a shell environment variable:
+
+```bash
+echo 'export SCADSAI_API_KEY="ihr_aktueller_api_key"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+For prepared Raspberry Pi systems or shared organizer setup, edit `scripts/set_secrets.local.sh` locally, then source it before starting Nanobot or opencode:
 
 ```bash
 nano scripts/set_secrets.local.sh
@@ -41,7 +49,8 @@ source scripts/set_secrets.local.sh
 Use local environment variables for both tools:
 
 ```bash
-export SCADSAI_LLM_API_KEY="replace-with-local-key"
+export SCADSAI_API_KEY="replace-with-local-key"
+export SCADSAI_LLM_API_KEY="$SCADSAI_API_KEY"
 export NANOBOT_WEBUI_SECRET="replace-with-local-webui-password"
 ```
 

@@ -56,12 +56,19 @@ This repository contains the content, tasks, setup notes, and workshop material 
 ## Optional opencode Quick Check
 Use this only if opencode local setup is part of your role. Organizers will provide the final `opencode.json` and local secret setup.
 
+If organizers provide an opencode API key for your local machine, set it as a shell environment variable:
+
+```bash
+echo 'export SCADSAI_API_KEY="ihr_aktueller_api_key"' >> ~/.bashrc
+source ~/.bashrc
+```
+
 ```bash
 opencode --version
 opencode
 ```
 
-API keys should be set through the local secret script unless organizers instruct otherwise. See [`opencode-setup.md`](opencode-setup.md) and [`config-templates.md`](config-templates.md) for details.
+Do not write API keys into `opencode.json` or other shared files. See [`opencode-setup.md`](opencode-setup.md) and [`config-templates.md`](config-templates.md) for details.
 
 ## Nanobot Quick Check
 Use this only if local Nanobot setup is part of the participant's role.

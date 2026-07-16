@@ -4,5 +4,6 @@
 # Load it with: source scripts/set_secrets.local.sh
 # Do not commit scripts/set_secrets.local.sh.
 
-export SCADSAI_LLM_API_KEY="replace-with-local-key"
+export SCADSAI_API_KEY="replace-with-local-key"
+export SCADSAI_LLM_API_KEY="$SCADSAI_API_KEY"
 export NANOBOT_WEBUI_SECRET="replace-with-local-webui-password"

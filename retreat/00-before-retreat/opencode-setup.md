@@ -49,6 +49,19 @@ Re-check the exact IDs before the retreat via <https://llm.scads.ai/status/> or 
 The template uses an environment variable by default:
 
 ```bash
+export SCADSAI_API_KEY="replace-with-local-key"
+```
+
+For the simplest persistent local setup, add it to the user's shell startup file:
+
+```bash
+echo 'export SCADSAI_API_KEY="ihr_aktueller_api_key"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Alternatively, organizers may keep secrets in the ignored local helper script and source it before starting opencode:
+
+```bash
 source scripts/set_secrets.local.sh
 ```
 
@@ -58,7 +71,7 @@ Do not write the API key into `opencode.json`. If a separate local config with a
 From the cloned working folder:
 
 ```bash
-source scripts/set_secrets.local.sh
+source ~/.bashrc
 opencode
 ```
 

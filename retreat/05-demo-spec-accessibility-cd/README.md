@@ -36,15 +36,8 @@ Only clone repositories or copy files into a working folder if this helps openco
 - 20 minutes: use opencode to draft the shared Markdown spec.
 - 10 minutes: group review, acceptance criteria, and UI implementation handoff.
 
-## Working Method With opencode
-Use opencode as a specification assistant, not as the final design authority.
-
-1. Put safe source material from Nextcloud into a prepared working folder, or provide a short source list with links and notes.
-2. Ask opencode to extract requirements, recommendations, constraints, and open questions.
-3. Draft `demo-spec.md` or `coding-spec.md`.
-4. Review the result with PR, Living Lab, developers, researchers, and operations.
-5. Mark what is mandatory today, optional today, and postponed.
-6. After the spec is accepted, use opencode on the Raspberry Pi to plan and implement UI changes against the local Nanobot code.
+## Drafting the Spec With opencode
+Use opencode as a specification assistant, not as the final design authority. Put safe source material from Nextcloud into a prepared working folder, or provide a short source list with links and notes.
 
 Example prompt:
 
@@ -64,46 +57,7 @@ Draft the result as a concise Markdown specification.
 Do not invent institutional rules. Mark missing facts as TODO.
 ```
 
-## UI Change Handoff
-After the group agrees on the design spec, switch from specification work to a controlled UI-change workflow on the prepared Raspberry Pi.
-
-Do not ask opencode to directly "make it look better". First ask for a plan, then review the plan, then allow a small build step.
-
-Step-by-step:
-1. Open opencode in the prepared Nanobot working folder on the Raspberry Pi.
-2. Point opencode to the agreed `demo-spec.md` or `coding-spec.md` and any copied template assets or notes.
-3. Ask opencode to identify the relevant Nanobot files, templates, styles, configuration points, or extension hooks for the requested UI change.
-4. Ask for a plan first: what will change, why, which files are involved, how to test it, and how to restart the service.
-5. Review the plan with PR/Living Lab and at least one technical participant.
-6. Approve only a small, concrete build step.
-7. Ask opencode to explain the changes and the restart procedure after implementation.
-8. Test the WebUI in the browser and compare it against the spec.
-
-Use a prompt like this:
-
-```text
-We have agreed on the attached demo specification for a Nanobot-based Scaddy-V2 demonstrator.
-
-First, inspect the local Nanobot code and identify the files, templates, style definitions, configuration points, or extension hooks relevant for the UI changes described in [SPEC FILE].
-
-Do not edit files yet.
-
-Create a plan that explains:
-1. which UI changes are feasible today,
-2. which files or settings would be touched,
-3. which changes are risky or should be postponed,
-4. how the result should be tested in the browser,
-5. how Nanobot must be restarted after changes.
-```
-
-Only after the plan is reviewed, use a build prompt:
-
-```text
-Implement only the approved UI changes from the reviewed plan.
-Keep the change small and reversible.
-Afterwards, summarize what changed, which files were touched, how to restart Nanobot, and how to verify the result in the browser.
-Do not read or modify secrets, .env files, local credentials, or unrelated configuration.
-```
+The accepted spec is handed over to Block 06, where opencode is used to plan, implement, restart, and refine the first UI change on the Raspberry Pi.
 
 ## Review Lenses
 PR/communications should focus on:
@@ -159,14 +113,12 @@ The shared Markdown spec should be short and actionable:
 - A shared `demo-spec.md` or `coding-spec.md`.
 - A Nextcloud source folder or source list for design, accessibility, and corporate design inputs.
 - Clear must-have and nice-to-have criteria for the afternoon tracks.
-- A reviewed opencode plan for the first UI changes in the Nanobot code on the Raspberry Pi.
+- A clear handoff to Block 06 for the first UI implementation step.
 - Open questions marked clearly instead of silently guessed.
 
 ## Moderation Notes
 - Give PR and Living Lab the lead in this block.
 - Keep developers in listening/specification mode first.
 - Keep source collection accessible through Nextcloud, not Git-only workflows.
-- Avoid jumping into UI implementation too early.
-- Move to UI implementation only after the group has accepted the spec.
-- Keep the first UI change small; the goal is a controlled start, not a full redesign.
+- Avoid jumping into UI implementation; that happens in Block 06.
 - Use opencode to structure and draft, but keep final design and public communication decisions human-led.

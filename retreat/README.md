@@ -19,8 +19,8 @@ The demonstrator is the concrete investigation object for this retreat, but the 
 | 10:15 | [Explore Nanobot](02-explore-nanobot/) | First WebUI experience and capability notes |
 | 10:30 | [Nanobot to Scaddy-V2](03-nanobot-to-scaddy-v2/) | Demonstrator scope and comparison with Scaddy-V1 |
 | 10:45 | [AI agents for daily work](04-ai-pair-programming-opencode/) | opencode workflows, everyday use cases, safe agent habits |
-| 11:30 | [Demo spec and accessibility](05-demo-spec-accessibility-cd/) | Shared demo/coding spec |
-| 12:30 | [Baseline stabilization](06-baseline-stabilization/) | Setup notes, repo hygiene, fallback status |
+| 11:30 | [Demo spec and accessibility](05-demo-spec-accessibility-cd/) | Design spec, accessibility, corporate design, template inputs |
+| 12:30 | [UI improvement and baseline](06-baseline-stabilization/) | First UI change, restart notes, baseline status |
 | 12:55 | [Midday check](07-midday-check/) | Current status and afternoon needs |
 | 13:00 | Lunch | Break |
 | 14:00 | [Re-entry plan](08-reentry-plan/) | Track assignments and success criteria |
@@ -62,7 +62,7 @@ Each block should produce either a visible artifact, a shared decision, or a cla
 4. Compare Nanobot with Scaddy-V1 and define the Scaddy-V2 demonstrator scope.
 5. Practice opencode for exploration, documentation, safe changes, and everyday work.
 6. Define demo design, accessibility, corporate design, and interaction specification.
-7. Stabilize the baseline: repo hygiene, setup docs, prompts, fallback material.
+7. Apply the specification in one small UI improvement and stabilize the first baseline.
 8. Lunch and re-entry.
 9. Parallel feature tracks: knowledge, vision, voice, hardening.
 10. Deployment and Raspberry Pi target-system walkthrough.
@@ -76,8 +76,8 @@ Each block should produce either a visible artifact, a shared decision, or a cla
 - 🧪 [`02-explore-nanobot`](02-explore-nanobot/) - Nanobot WebUI and first success tasks.
 - 🔎 [`03-nanobot-to-scaddy-v2`](03-nanobot-to-scaddy-v2/) - Scaddy-V1 comparison and demonstrator scope.
 - 🤝 [`04-ai-pair-programming-opencode`](04-ai-pair-programming-opencode/) - opencode practice, everyday workflows, safe agent habits.
-- 🧭 [`05-demo-spec-accessibility-cd`](05-demo-spec-accessibility-cd/) - combined demo spec, accessibility, corporate design, UI implications.
-- 🧱 [`06-baseline-stabilization`](06-baseline-stabilization/) - repo, docs, setup, fallback, known limitations.
+- 🧭 [`05-demo-spec-accessibility-cd`](05-demo-spec-accessibility-cd/) - design spec, accessibility, corporate design, template inputs.
+- 🧱 [`06-baseline-stabilization`](06-baseline-stabilization/) - first UI improvement, restart notes, baseline status.
 - ☑️ [`07-midday-check`](07-midday-check/) - status before lunch.
 - 🔁 [`08-reentry-plan`](08-reentry-plan/) - afternoon planning and track selection.
 - 🛠️ [`09-feature-tracks`](09-feature-tracks/) - knowledge, vision, voice, demo hardening.

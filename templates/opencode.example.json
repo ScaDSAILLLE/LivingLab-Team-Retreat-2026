@@ -1,38 +1,50 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "share": "disabled",
-  "model": "scads/MiniMaxAI/MiniMax-M3-MXFP8",
-  "small_model": "scads/MiniMaxAI/MiniMax-M3-MXFP8",
-  "instructions": ["AGENTS.md"],
   "provider": {
     "scads": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "llm.scads.ai",
+      "name": "ScaDS.AI HPC Dresden",
       "options": {
         "baseURL": "https://llm.scads.ai/v1",
-        "apiKey": "{env:SCADSAI_LLM_API_KEY}",
-        "timeout": 600000,
-        "chunkTimeout": 60000
+        "apiKey": "{env:SCADSAI_API_KEY}"
       },
       "models": {
         "MiniMaxAI/MiniMax-M3-MXFP8": {
-          "name": "llm.scads.ai MiniMax M3",
-          "tool_call": true
+          "name": "MiniMaxAI/MiniMax-M3-MXFP8",
+          "limit": {
+            "context": 524000,
+            "output": 128000
+          }
         },
-        "zai-org/GLM-5.2-FP8": {
-          "name": "llm.scads.ai GLM 5.2",
-          "tool_call": true
+        "alias-huge": {
+          "name": "alias-huge",
+          "limit": {
+            "context": 524000,
+            "output": 128000
+          }
+        },
+        "alias-huge-no-thinking": {
+          "name": "alias-huge-no-thinking",
+          "limit": {
+            "context": 524000,
+            "output": 128000
+          }
         },
         "moonshotai/Kimi-K2.7-Code": {
-          "name": "llm.scads.ai Kimi 2.7 Code",
-          "tool_call": true
+          "name": "moonshotai/Kimi-K2.7-Code",
+          "limit": {
+            "context": 262000,
+            "output": 128000
+          }
+        },
+        "google/gemma-4-31B-it": {
+          "name": "google/gemma-4-31B-it",
+          "limit": {
+            "context": 262000,
+            "output": 128000
+          }
         }
       }
     }
-  },
-  "permission": {
-    "edit": "ask",
-    "bash": "ask",
-    "webfetch": "ask"
   }
 }

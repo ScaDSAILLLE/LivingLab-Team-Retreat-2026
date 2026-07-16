@@ -10,7 +10,7 @@
       "name": "llm.scads.ai",
       "options": {
         "baseURL": "https://llm.scads.ai/v1",
-        "apiKey": "{env:SCADSAI_LLM_API_KEY}",
+        "apiKey": "{env:SCADSAI_API_KEY}",
         "timeout": 600000,
         "chunkTimeout": 60000
       },
