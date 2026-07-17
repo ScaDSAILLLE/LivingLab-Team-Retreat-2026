@@ -26,11 +26,20 @@ export PATH="$HOME/.local/bin:$PATH"
 
 uv tool install nanobot-ai
 
+if command -v nanobot >/dev/null 2>&1; then
+  nanobot --version
+  echo
+  read -r -p "Run 'nanobot onboard' now? Type YES: " onboard_confirm
+  if [ "$onboard_confirm" = "YES" ]; then
+    nanobot onboard
+  else
+    echo "Skipped nanobot onboard. You can run it later with: nanobot onboard"
+  fi
+fi
+
 if ! command -v opencode >/dev/null 2>&1; then
   curl -fsSL https://opencode.ai/install | bash
 fi
-
-mkdir -p "$HOME/.nanobot"
 
 cat <<'MSG'
 
@@ -40,12 +49,12 @@ Next steps:
 1. Copy templates/nanobot-config.example.json to ~/.nanobot/config.json.
 2. Copy templates/opencode.example.json to opencode.json in the working repository.
 3. Copy scripts/set_secrets.example.sh to scripts/set_secrets.local.sh.
-4. Re-check model IDs against https://llm.scads.ai/status/ if needed.
-5. Add local secrets to scripts/set_secrets.local.sh and source it:
+4. Set the shared ScaDS.AI API key for opencode and Nanobot:
+   echo 'export SCADSAI_API_KEY="ihr_aktueller_api_key"' >> ~/.bashrc
+   source ~/.bashrc
+5. For prepared RPi systems, add local secrets to scripts/set_secrets.local.sh and source it:
    source scripts/set_secrets.local.sh
-6. Verify:
-   nanobot status
-   nanobot agent -m "Hello!"
+6. Re-check model IDs against https://llm.scads.ai/status/ if needed.
 7. Start:
    nanobot gateway
 8. Open:

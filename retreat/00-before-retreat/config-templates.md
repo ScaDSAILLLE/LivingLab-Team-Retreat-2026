@@ -11,8 +11,7 @@ Keep configuration reproducible without committing real secrets.
 ## Values To Fill Before The Retreat
 | Value | Used by | Suggested placeholder | Source |
 |---|---|---|---|
-| API key | opencode | `SCADSAI_API_KEY` | Local user/team credential from `llm.scads.ai` |
-| API key | Nanobot | `SCADSAI_LLM_API_KEY` | Local user/team credential from `llm.scads.ai`; may be updated with the final Nanobot config |
+| API key | opencode, Nanobot | `SCADSAI_API_KEY` | Local user/team credential from `llm.scads.ai` |
 | Nanobot model | Nanobot | `google/gemma-4-31B-it` | `llm.scads.ai` status overview |
 | Coding model | opencode | `MiniMaxAI/MiniMax-M3-MXFP8` | `llm.scads.ai` status overview |
 | Alternative model | opencode/Nanobot | `zai-org/GLM-5.2-FP8` | `llm.scads.ai` status overview |
@@ -50,7 +49,6 @@ Use local environment variables for both tools:
 
 ```bash
 export SCADSAI_API_KEY="replace-with-local-key"
-export SCADSAI_LLM_API_KEY="$SCADSAI_API_KEY"
 export NANOBOT_WEBUI_SECRET="replace-with-local-webui-password"
 ```
 

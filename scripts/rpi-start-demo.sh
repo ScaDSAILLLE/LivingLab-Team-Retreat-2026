@@ -18,9 +18,9 @@ if [ ! -f "$HOME/.nanobot/config.json" ]; then
   exit 1
 fi
 
-if [ -z "${SCADSAI_LLM_API_KEY:-}" ]; then
-  echo "SCADSAI_LLM_API_KEY is not set in this shell."
-  echo "Edit and source scripts/set_secrets.local.sh first."
+if [ -z "${SCADSAI_API_KEY:-}" ]; then
+  echo "SCADSAI_API_KEY is not set in this shell."
+  echo "Set it in ~/.bashrc or edit and source scripts/set_secrets.local.sh first."
   exit 1
 fi
 

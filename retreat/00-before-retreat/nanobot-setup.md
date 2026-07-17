@@ -45,7 +45,7 @@ Then edit the local file only:
 nano ~/.nanobot/config.json
 ```
 
-Keep `${SCADSAI_LLM_API_KEY}` and `${NANOBOT_WEBUI_SECRET}` in the config. Export the real values before starting Nanobot.
+Keep `{env:SCADSAI_API_KEY}` and the configured WebUI token/secret placeholders in the config. Export the real API key before starting Nanobot.
 
 Never copy the real local config back into this repository.
 
