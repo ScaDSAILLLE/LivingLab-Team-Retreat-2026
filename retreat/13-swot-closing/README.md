@@ -1,6 +1,6 @@
 # SWOT, Living Lab Vision 2030, and Closing
 
-**Time:** 16:05-16:30
+**Time:** 16:10-16:45
 
 ## Purpose
 Turn the concrete workshop experience into team learning and follow-up actions.
