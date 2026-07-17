@@ -9,7 +9,7 @@ Explore how Nanobot can be extended toward Scaddy-V2 without rebuilding the orig
 Which small feature, integration assessment, or hardening step would make Scaddy-V2 more useful for Living Lab visitors today?
 
 ## Objectives
-- Test how far the Nanobot-based demo can be pushed toward Scaddy-V2 in a short timeframe and based on todays learning (e.g. regarding Opencode).
+- Test how far the Nanobot-based demo can be pushed toward Scaddy-V2 in a short timeframe and based on today's learning, including opencode.
 - Produce the smallest visible improvement or the clearest integration assessment per track.
 - Keep each track connected to public-demo value, maintainability, accessibility, and operations.
 - Document what works, what fails, and what should be postponed. (Git!)

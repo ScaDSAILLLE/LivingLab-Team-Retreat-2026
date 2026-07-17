@@ -3,13 +3,13 @@
 **Time:** 15:25-15:50
 
 ## Purpose
-Turn the workshop result into a traceable and reusable demonstrator (repo, package etc.) that another person can understand, start, operate, review, and continue after the retreat.
+Turn the workshop result into a traceable and reusable demonstrator package that another person can understand, start, operate, review, and continue after the retreat.
 
 ## Key Question
-Can another person understand what was built, how to start it, what is stable, what is fragile, and what should happen next? Are we ready to deploy this now to our Digital-Living-Lab?
+Can another person understand what was built, how to start it, what is stable, what is fragile, and what should happen next? Are we ready to deploy this now to our Digital Living Lab?
 
 ## Objectives
-- **For collegues that are not familiar with git**: use Opencode to learn or focus on your strenghts, e.g. documenting progress and what you did/solved :)
+- **For colleagues who are not familiar with Git**: use opencode to learn or focus on your strengths, for example documenting progress and what you did or solved.
 - Clean up the repository and documentation state before the final pitches.
 - Capture setup, operation, limitations, deployment notes, and demo story.
 - Make outputs usable for follow-up work, not only for the final presentation.

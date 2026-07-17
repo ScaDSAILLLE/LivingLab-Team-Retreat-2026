@@ -26,9 +26,9 @@ The demonstrator is the concrete investigation object for this retreat, but the 
 | 14:00 | [Re-entry plan](08-reentry-plan/) | Track assignments and success criteria |
 | 14:10 | [Feature tracks](09-feature-tracks/) | Knowledge, vision, voice, or hardening result |
 | 14:55 | [Deployment and infrastructure](10-deployment/) | Digital Living Lab, HPC services, public AI app hosting |
-| 15:20 | [Repo and docs finalization](11-repo-docs-finalization/) | Start, manual, deployment, limitations, demo story |
-| 15:45 | [Demo pitches](12-demo-pitches/) | Short track demos and learnings |
-| 16:05 | [SWOT and closing](13-swot-closing/) | Follow-up actions and responsibilities |
+| 15:25 | [Repo and docs finalization](11-repo-docs-finalization/) | Start, manual, deployment, limitations, demo story |
+| 15:50 | [Demo pitches](12-demo-pitches/) | Short track demos and learnings |
+| 16:10 | [SWOT and closing](13-swot-closing/) | Follow-up actions and responsibilities |
 
 ## Objectives
 

@@ -1,7 +1,7 @@
 # opencode Setup
 
 ## Purpose
-Prepare opencode for repository exploration, documentation work, safe Git workflows, and agent-assisted coding tasks during the retreat.
+Prepare opencode for repository exploration, documentation work, daily tasks, and agent-assisted implementation during the retreat.
 
 ## Install
 Check the current installer before running it. Installation commands may change.

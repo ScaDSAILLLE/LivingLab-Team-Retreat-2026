@@ -38,7 +38,7 @@ What must be ready before 10:00 so participants can start without losing worksho
 - The primary workshop path is a dedicated RPi with direct Nanobot WebUI access on the trusted local network.
 - Reverse proxies, containers, TLS, and service management are out of scope for the start setup unless prepared separately for later production use.
 
-## Expected Outputs
+## Expected Output
 - Participant setup checklist sent in advance.
 - Organizer prep checklist completed.
 - Optional retreat cheatsheet prepared in Nextcloud or the repo.

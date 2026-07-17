@@ -13,7 +13,7 @@ What must the demonstrator look, say, and do so that it is understandable, acces
 - Use Living Lab templates and university or institutional guidelines as practical design inputs.
 - Collect sources in Nextcloud so nobody needs Git knowledge to contribute material.
 - Use opencode to turn links, notes, templates, and examples into a concise `demo-spec.md` or `coding-spec.md`.
-- Prepare a careful opencode-driven UI change workflow for the Nanobot instance on the Raspberry Pi.
+- Prepare the handoff for a careful opencode-driven UI change workflow on the Nanobot instance in Block 06.
 - Define must-have and nice-to-have criteria for the afternoon work.
 
 ## Inputs and Source Collection
