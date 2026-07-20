@@ -1,0 +1,92 @@
+#!/bin/bash
+#SBATCH --job-name=__JOB_NAME__
+#SBATCH --nodes=1
+#SBATCH --gres=__GRES__
+#SBATCH --cpus-per-task=__CPUS__
+#SBATCH --mem=__MEM__
+#SBATCH --time=__TIME__
+#SBATCH --account=__ACCOUNT__
+#SBATCH --output=__WORK_DIR__/logs/__JOB_NAME__.out
+#__SBATCH_RESERVATION__
+
+# ============================================================================
+#  SLURM job for OmniVoice TTS serving with vLLM-Omni.
+#
+#  This file is a TEMPLATE: launch_omnivoice.sh replaces every __TOKEN__ and
+#  uploads the result as hpc/run.sbatch before calling sbatch.
+#
+#  Unlike the LLM gateway (server/serve.py), the TTS path launches vLLM-Omni's
+#  own OpenAI-compatible server directly -- it already exposes the
+#  POST /v1/audio/speech endpoint we need, so no custom gateway is required.
+# ============================================================================
+
+set -o pipefail
+
+__MODULES_LOAD__
+
+WORK_DIR=__WORK_DIR__
+SERVICE_PORT=__SERVICE_PORT__
+MODEL_REF=__MODEL_REF__
+SERVE_EXTRA="__SERVE_EXTRA__"
+
+echo "=== OmniVoice (vLLM-Omni) job starting ==="
+echo "Job name : ${SLURM_JOB_NAME}"
+echo "Job ID   : ${SLURM_JOB_ID}"
+echo "Node     : ${SLURM_NODELIST}"
+echo "GPUs     : ${CUDA_VISIBLE_DEVICES:-none}"
+echo "Work dir : ${WORK_DIR}"
+echo "Model    : ${MODEL_REF}"
+echo "Port     : ${SERVICE_PORT}"
+echo "-----------------------------------------"
+
+VIRTUAL_ENV="${WORK_DIR}/venv"
+if [ ! -f "${VIRTUAL_ENV}/bin/activate" ]; then
+    echo "ERROR: virtualenv not found at ${VIRTUAL_ENV}."
+    echo "       Run './launch_omnivoice.sh sync' and 'start' again."
+    exit 1
+fi
+source "${VIRTUAL_ENV}/bin/activate"
+
+# Keep downloaded Hugging Face weights inside the working directory so
+# pre-downloads done on the login node are visible to the compute node.
+export HF_HOME="${WORK_DIR}/hf_cache"
+mkdir -p "${HF_HOME}"
+
+cd "${WORK_DIR}"
+
+echo "Starting vLLM-Omni server for OmniVoice on port ${SERVICE_PORT} ..."
+# shellcheck disable=SC2086
+vllm serve "${MODEL_REF}" \
+    --omni \
+    --host 0.0.0.0 \
+    --port "${SERVICE_PORT}" \
+    ${SERVE_EXTRA} &
+VLLM_PID=$!
+
+# Wait until the OpenAI server answers /health (or the process dies).
+# vLLM-Omni loads the model + aux modules (Whisper ASR, etc.) before the
+# server becomes healthy, so this can take a few minutes on the first run.
+ready=0
+for _ in $(seq 1 720); do
+    if ! kill -0 "${VLLM_PID}" 2>/dev/null; then
+        echo "SERVER_FAILED: vLLM process exited before becoming healthy"
+        exit 1
+    fi
+    if curl -sf "http://127.0.0.1:${SERVICE_PORT}/health" >/dev/null 2>&1; then
+        ready=1
+        break
+    fi
+    sleep 5
+done
+
+if [ "${ready}" -ne 1 ]; then
+    echo "SERVER_FAILED: timed out waiting for /health"
+    kill "${VLLM_PID}" 2>/dev/null || true
+    exit 1
+fi
+
+echo "SERVER_READY"
+echo "OmniVoice is live -> POST http://0.0.0.0:${SERVICE_PORT}/v1/audio/speech"
+
+# Keep the job alive with the server. If vLLM dies, the job exits.
+wait "${VLLM_PID}"

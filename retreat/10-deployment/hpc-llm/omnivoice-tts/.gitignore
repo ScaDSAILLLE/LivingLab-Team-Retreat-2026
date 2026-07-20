@@ -1,0 +1,4 @@
+omnivoice.conf
+.run/
+__pycache__/
+*.pyc
