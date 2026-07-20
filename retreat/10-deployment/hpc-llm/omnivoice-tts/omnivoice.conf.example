@@ -1,0 +1,113 @@
+# ============================================================================
+#  OmniVoice TTS on HPC - configuration file (vLLM-Omni based)
+#  ----------------------------------------------------------------------------
+#  Copy this file to `omnivoice.conf` and edit it:
+#      cp omnivoice.conf.example omnivoice.conf
+#
+#  This is a self-contained companion to the main vLLM LLM host (models.conf).
+#  It serves the OmniVoice TTS model with vLLM-Omni through the OpenAI-
+#  compatible POST /v1/audio/speech endpoint, and keeps its own isolated venv
+#  so it never disturbs an LLM-hosting setup.
+#
+#  Syntax is plain INI:   [section]  /  key = value
+#  Lines starting with #  are comments and are ignored.
+# ============================================================================
+
+
+# ----------------------------------------------------------------------------
+#  [hpc]  -- how to reach the GPU cluster
+# ----------------------------------------------------------------------------
+[hpc]
+
+# SSH target. Either a Host alias from your ~/.ssh/config, a bare hostname, or
+# "user@hostname". If you only give a hostname, set "user" below.
+host = HPC_HOST_FULLNAME
+user = USER_ID
+
+# Path to your SSH private key. Leave empty to use your ssh-agent.
+# A leading ~ is expanded to your home directory.
+ssh_key = FULL_PATH_TO_SSH_KEY
+
+# Directory on the cluster where the tool installs itself + the model.
+# MUST be on a filesystem shared with the compute nodes (e.g. your $WORK).
+# Keep this separate from your LLM-hosting work_dir so the venvs don't clash.
+work_dir = /path/on/cluster/omnivoice-hosting
+
+# SLURM account/project to charge (optional, depends on your cluster).
+account = ACCOUNT_ID
+
+# Environment modules to load for Python/GPU/CUDA. vLLM needs a CUDA toolkit
+# on the compute node. Space-separated, e.g.:
+#   "release/24.10 GCCcore/13.3.0 Python/3.12.3 CUDA/12.6"
+modules = release/24.10 GCCcore/13.3.0 Python/3.12.3 CUDA/12.6
+
+
+# ----------------------------------------------------------------------------
+#  [slurm]  -- the batch job that runs the vLLM-Omni server
+# ----------------------------------------------------------------------------
+[slurm]
+
+# Job name shown by `squeue`. Keep it unique per config file.
+job_name = omnivoice-tts
+
+partition = gpu
+gres      = gpu:1
+cpus      = 8
+mem       = 40G
+time      = 08:00:00
+
+# Optional SLURM reservation id. Leave empty for normal queues.
+reservation =
+
+
+# ----------------------------------------------------------------------------
+#  [service]  -- the vLLM-Omni HTTP server
+# ----------------------------------------------------------------------------
+[service]
+
+# Port the server listens on inside the compute node, and the local port
+# forwarded to your laptop.
+port       = 8000
+local_port = 8000
+
+# Python binary used to create the virtualenv on the cluster (optional).
+python = python3
+
+# vLLM-Omni is a library on top of vLLM and does NOT pull vLLM/torch itself,
+# so setup installs the matching vLLM wheel first (it provides the 'vllm' CLI
+# the SLURM job launches), then vLLM-Omni. Keep these two on the same
+# major.minor. Defaults = the latest stable PyPI pair (CUDA 12 line):
+#   vllm_version     = 0.24.0
+#   vllm_omni_source = vllm-omni==0.24.0
+# Bleeding edge (CUDA 13): vllm_version = 0.25.0 + vllm_omni_source = git+https://github.com/vllm-project/vllm-omni.git
+# vllm_extra_index_url =          # optional, e.g. a custom/ROCm wheels index
+
+
+# ============================================================================
+#  MODEL
+#  ----------------------------------------------------------------------------
+#  One [model:NAME] block. NAME is informational here (a single model is
+#  served). OmniVoice is supported natively by vLLM-Omni (OmniVoiceModel).
+#
+#  source        huggingface (default, downloaded on the cluster)  |  local
+#  model_id      Hugging Face repo id (source = huggingface)
+#  local_path    folder on your laptop (source = local); rsynced to the cluster
+#
+#  Optional keys (forwarded to `vllm serve`):
+#    trust-remote-code       true (flag). OmniVoice needs this; defaulted on.
+#    dtype                   auto | float16 | bfloat16 | float32
+#    gpu-memory-utilization  fraction of GPU memory for vLLM (default 0.9).
+#    extra-args              raw string appended to `vllm serve` (advanced).
+# ============================================================================
+[model:omnivoice]
+source                = huggingface
+model_id              = k2-fsa/OmniVoice
+trust-remote-code     = true
+dtype                 = bfloat16
+gpu-memory-utilization = 0.9
+
+# --- Alternative: a local / fine-tuned copy of OmniVoice on your laptop ---
+# [model:omnivoice]
+# source      = local
+# local_path  = ~/models/OmniVoice
+# dtype       = bfloat16
