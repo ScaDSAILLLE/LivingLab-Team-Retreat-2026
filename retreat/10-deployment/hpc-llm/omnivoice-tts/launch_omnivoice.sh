@@ -122,7 +122,9 @@ load_config() {
   HPC_HOST="$(cfg hpc host)"
   HPC_USER="$(cfg hpc user)"
   SSH_KEY="$(expand_tilde "$(cfg hpc ssh_key)")"
-  WORK_DIR="$(cfg hpc work_dir)"
+  WORK_FILESYSTEM="$(cfg hpc workspace_filesystem)"
+  WORK_NAME="$(cfg hpc workspace_name)"
+  WORK_DIR="/data/${WORK_FILESYSTEM}/ws/${HPC_USER}-${WORK_NAME}"
   HPC_ACCOUNT="$(cfg hpc account)"
   HPC_MODULES="$(cfg hpc modules)"
 
@@ -192,6 +194,11 @@ stop_hpc_job()   { ssh_cmd "scancel -n '$1'" 2>/dev/null || true; }
 validate_jobid() {
   local j="$1"
   if [[ "$j" =~ ^[0-9]+$ ]]; then ok "Submitted SLURM job ${j}"; else err "Job submission failed: ${j}"; exit 1; fi
+}
+
+# To create workspace
+create_workspace() {
+	ssh_cmd "ws_find -F ${WORK_FILESYSTEM} ${WORK_NAME} || ws_allocate -F ${WORK_FILESYSTEM} ${WORK_NAME} 10"
 }
 
 # ── Model reference + serve-extra (built from config) ───────────────────────
@@ -394,18 +401,16 @@ print_access_info() {
 
 # ── Commands ────────────────────────────────────────────────────────────────
 cmd_sync() {
-  step "Connecting to HPC";    check_ssh_connection
-  step "Syncing server code";  sync_code
-  step "Syncing model";        sync_model
-  step "Installing deps";      resolve_model_ref; write_run_env; run_setup_remote
+  step "Connecting to HPC";      	check_ssh_connection
+  step "Checking workspace on HPC"; create_workspace
+  step "Syncing server code";  		sync_code
+  step "Syncing model";        		sync_model
+  step "Installing deps";      		resolve_model_ref; write_run_env; run_setup_remote
   ok "Sync complete."
 }
 
 cmd_start() {
-  step "Connecting to HPC";    check_ssh_connection
-  step "Syncing server code";  sync_code
-  step "Syncing model";        sync_model
-  step "Installing deps";      resolve_model_ref; write_run_env; run_setup_remote
+  cmd_sync
   step "Rendering SLURM job";  resolve_model_ref; build_serve_extra; render_sbatch
   step "Submitting SLURM job"; submit_job
   step "Waiting for server";   wait_for_ready || exit 1
@@ -499,6 +504,7 @@ while [ $# -gt 0 ]; do
 done
 
 load_config
+
 case "${COMMAND:-help}" in
   start)   cmd_start;;
   stop)    cmd_stop;;

@@ -15,6 +15,7 @@
 set -eo pipefail
 
 WORK_DIR="${1:-}"
+
 if [ -z "$WORK_DIR" ]; then
     echo "usage: setup_omnivoice.sh <work_dir>"
     exit 1
@@ -50,28 +51,28 @@ fi
 VENV="${WORK_DIR}/venv"
 if [ ! -f "${VENV}/bin/activate" ]; then
     echo "Creating virtualenv at ${VENV}"
-    "$PYTHON_BIN" -m venv "$VENV"
+    "$PYTHON_BIN" -q -m venv "$VENV"
 fi
 
 # shellcheck disable=SC1091
 source "${VENV}/bin/activate"
-pip install --upgrade pip setuptools wheel >/dev/null
+pip install -q --upgrade pip setuptools wheel > /dev/null
 
 # 1) vLLM itself -- provides the `vllm` CLI and pulls a matching torch+CUDA.
 #    Installed from PyPI's default CUDA wheel (predictable on a headless login
 #    node; vLLM-Omni's setup.py detects torch -> loads requirements/cuda.txt).
 echo "Installing vLLM ${VLLM_VERSION} (provides the 'vllm' CLI + torch)..."
 if [ -n "$VLLM_EXTRA_INDEX" ]; then
-    pip install "vllm==${VLLM_VERSION}" --extra-index-url "${VLLM_EXTRA_INDEX}"
+    pip install -q "vllm==${VLLM_VERSION}" --extra-index-url "${VLLM_EXTRA_INDEX}"
 else
-    pip install "vllm==${VLLM_VERSION}"
+    pip install -q "vllm==${VLLM_VERSION}"
 fi
 
 # 2) vLLM-Omni -- registers the --omni flag, OmniVoiceModel, and the
 #    /v1/audio/speech endpoint. This is isolated in this venv and does not
 #    affect any separate LLM-hosting venv you may have.
 echo "Installing vLLM-Omni from: ${VLLM_OMNI_SOURCE}"
-pip install "${VLLM_OMNI_SOURCE}"
+pip install -q "${VLLM_OMNI_SOURCE}"
 
 # 3) Verify now so we fail loudly here instead of at SLURM time with
 #    "vllm: command not found" or an import error (the original failure modes).

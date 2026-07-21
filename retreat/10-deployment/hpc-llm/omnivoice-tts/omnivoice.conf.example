@@ -29,9 +29,16 @@ user = USER_ID
 ssh_key = FULL_PATH_TO_SSH_KEY
 
 # Directory on the cluster where the tool installs itself + the model.
-# MUST be on a filesystem shared with the compute nodes (e.g. your $WORK).
 # Keep this separate from your LLM-hosting work_dir so the venvs don't clash.
-work_dir = /path/on/cluster/omnivoice-hosting
+# Filesystem: horse (preferred), cat, quokka
+workspace_filesystem = FILESYSTEM
+# Any name of the workspace
+workspace_name = MY_WORKSPACE
+
+# With above settings, the directory on ZIH HPC system will be. 
+# /data/FILESYSTEM/ws/USER_ID-MY_WORKSPACE
+# It will be created, if it is not existing
+
 
 # SLURM account/project to charge (optional, depends on your cluster).
 account = ACCOUNT_ID
